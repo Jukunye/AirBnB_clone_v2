@@ -32,7 +32,7 @@ def c_fun(text):
 
 
 @app.route('/python', strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=False)
+@app.route('/python/<string:text>', strict_slashes=False)
 def python_func(text="is cool"):
     """
     Route handler for the root path ("/python").
