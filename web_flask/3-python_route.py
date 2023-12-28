@@ -31,13 +31,16 @@ def c_fun(text):
     return "C {}".format(text).replace('_', ' ')
 
 
-@app.route('/python', strict_slashes=False)
-@app.route('/python/<string:text>', strict_slashes=False)
+@app.route("/python", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
 def python_func(text="is cool"):
     """
     Route handler for the root path ("/python").
+
+    Replaces any underscores in <text> with slashes.
     """
-    return "python {}".format(text).replace('_', ' ')
+    text = text.replace("_", " ")
+    return "Python {}".format(text)
 
 
 if __name__ == '__main__':
