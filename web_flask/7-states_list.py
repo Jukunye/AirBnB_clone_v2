@@ -17,7 +17,7 @@ def remove_session(error):
 @app.route("/states_list", strict_slashes=False)
 def fetch_states():
     """Fetches all states in the database"""
-    states_list = storage.all()
+    states_list = storage.all('State')
     return render_template("7-states_list.html", states_list=states_list)
 
 
