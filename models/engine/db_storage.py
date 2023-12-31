@@ -64,7 +64,7 @@ class DBStorage():
             objects += self.__session.query(City).all()
         else:
             # Query all objects of the specified class
-            objects = self.__session.query(cls).all()
+            objects = self.__session.query(cls).order_by(cls.name.asc()).all()
 
         return {f'{obj.__class__.__name__}.{obj.id}': obj for obj in objects}
 
