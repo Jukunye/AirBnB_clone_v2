@@ -7,14 +7,15 @@
         <H1>States</H1>
         <UL>
             {% for key, state in states_list.items() %}
-            <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-                <ul>
-                    {% for key, city in cities_list.items() %}
-                    {% if city.state_id == state.id %}
-                        <li>{{ city.id }}: <B>{{ city.name }}</B></li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
+                <LI>{{ state.id }}: <B>{{ state.name }}</B>
+                    <UL>
+                        {% for key, city in cities_list.items() -%}
+                            {% if city.state_id == state.id %}
+                                <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+                            {% endif %}
+                        {%- endfor %}
+                    </UL>
+                </LI>
             {% endfor %}
 
         </UL>
