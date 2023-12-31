@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        <UL>
+            {% for key, state in states_list.items() %}
+            <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+                <ul>
+                    {% for key, city in cities_list.items() %}
+                    {% if city.state_id == state.id %}
+                        <li>{{ city.id }}: <B>{{ city.name }}</B></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+
+        </UL>
+    </BODY>
+</HTML>
