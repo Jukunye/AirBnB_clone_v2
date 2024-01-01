@@ -32,13 +32,15 @@ def fetch_cities(id):
     cities = []
 
     if val in states_list:
-        for key, city in cities_list.items():
+        state_name = states_list[val].name
+        for city in cities_list.values():
             if city.state_id == id:
                 cities.append(city)
     else:
         cities = None
-    
-    return render_template("9-states.html", cities=cities)
+
+    return render_template(
+        "9-states.html", cities=cities, state_name=state_name)
 
 
 if __name__ == '__main__':
