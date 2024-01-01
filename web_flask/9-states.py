@@ -38,6 +38,7 @@ def fetch_cities(id):
                 cities.append(city)
     else:
         cities = None
+        state_name = None
 
     return render_template(
         "9-states.html", cities=cities, state_name=state_name)
