@@ -4,23 +4,26 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        <H1>States</H1>
+        {{- '\n' -}}
         {% if states_list is defined %}
-            <UL>
-                {% for key, value in states_list.items() %}
-                <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
-                {% endfor %}
-            </UL>
+        <H1>States</H1>
+        <UL>
+            {% for key, value in states_list.items() %}
+            <LI>{{ value.id }}: <B>{{ value.name }}</B></LI>
+            {% endfor %}
+        </UL>
         {% else %}
-            {% if cities == None %}
-                <h2>Not Found</h2>
-            {% else %}
-                {% for city in cities %}
-                <UL>
-                    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-                </UL>
-                {% endfor %}
-            {% endif %}
+        {% if cities == None %}
+        <H1>Not found!</H1>
+        {% else %}
+        <H1>State: {{ state_name }}</H1>
+        <H3>Cities:</H3>
+        <UL>
+            {%- for city in cities %}
+            <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+            {% endfor -%}
+        </UL>
+        {% endif %}
         {% endif %}
     </BODY>
 </HTML>
